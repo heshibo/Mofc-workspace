@@ -1,0 +1,41 @@
+allprojects {
+    buildscript {
+        repositories {
+            mavenLocal()
+
+            maven { url REPOSITORY }
+            maven { url CHSRM_REPOSITORY }
+
+//            mavenCentral()
+//            maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        }
+
+        dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        }
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+    apply plugin: 'eclipse'
+
+    // java编译的时候缺省状态下会因为中文字符而失败
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+    group = GROUP
+    version = VERSION
+    // JVM 版本号要求
+    sourceCompatibility = COMPATIBILITY
+    targetCompatibility = COMPATIBILITY
+
+    repositories {
+        mavenLocal()
+
+        maven { url REPOSITORY }
+        maven { url CHSRM_REPOSITORY }
+
+//        mavenCentral()
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+}

@@ -1,0 +1,4 @@
+rootProject.name = 'mofc-pa'
+include 'pa-api'
+include 'pa-entity'
+include 'pa-service'
